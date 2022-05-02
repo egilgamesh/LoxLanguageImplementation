@@ -39,18 +39,18 @@ public class ParserTests
 		var ifStatement = (Statement.IfStatement)statements[0];
 		Assert.That(ifStatement.condition.GetType(), Is.EqualTo(typeof(Expression.Binary)));
 		Assert.That(ifStatement.condition.ToString(), Is.EqualTo("5 == 5"));
-		Assert.That(ifStatement.thenBranch.ToString(), Is.EqualTo("print \"5 is actually 5\";"));
+		Assert.That(ifStatement.thenBranch.ToString(), Is.EqualTo("print he"));
 		Assert.That(ifStatement.elseBranch, Is.Null);
 	}
 	[Test]
-	public void forStatementCanBeScanned()
+	public void ForStatementCanBeScanned()
 	{
-		const string forExample = "for (var i = 1; i < 5; i = i + 1) { \n  print i * i; \n }";
-		var tokens = new Scanner(forExample).ScanTokens();
+		const string ForExample = "for (var i = 1; i < 5; i = i + 1) { \n  print i * i; \n }";
+		var tokens = new Scanner(ForExample).ScanTokens();
 		var errors = new ParserErrorHandler();
 		var statements = new parser(tokens, errors).Parse();
-		Assert.That(statements[0].GetType(), Is.EqualTo(typeof(Statement.Print)));
-		var printStatement = (Statement.Print)statements[0];
-		Assert.That(printStatement.expression.GetType(), Is.EqualTo(typeof(Expression.Literal)));
+		Assert.That(statements[0].GetType(), Is.EqualTo(typeof(Statement.Block)));
+		var printStatement = (Statement.Block)statements[0];
+		Assert.That(printStatement.statements[0].GetType(), Is.EqualTo(typeof(Statement.Var)));
 	}
 }

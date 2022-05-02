@@ -31,7 +31,7 @@ public class parser
 			return PrintStatement();
 		if (MatchAny(TokenType.While))
 			return WhileStatement();
-		if (MatchAny(TokenType.LeftParenthesis))
+		if (MatchAny(TokenType.LeftBrace))
 			return new Statement.Block(Block());
 		return ExpressionStatement();
 	}
