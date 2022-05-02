@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj": {}
+    "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\LoxLanguageImplentation\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj": {
+    "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\LoxLanguageImplentation\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj",
+        "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\LoxLanguageImplentation\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj",
         "projectName": "CraftInterpreter.Lox",
-        "projectPath": "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj",
+        "projectPath": "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\LoxLanguageImplentation\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\CraftInterpreter.Lox\\obj\\",
+        "outputPath": "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\LoxLanguageImplentation\\CraftInterpreter.Lox\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
