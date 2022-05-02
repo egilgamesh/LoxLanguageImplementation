@@ -1,0 +1,5 @@
+﻿Welcome("Lox", "World");
+
+﻿fun Welcome(first, last) {
+  return "Hi, " + first + " " + last + "!";
+}

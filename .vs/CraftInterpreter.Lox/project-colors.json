@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "df568edf-41ac-40fd-ac9f-6f02dcf4829a": {
+      "ProjectGuid": "df568edf-41ac-40fd-ac9f-6f02dcf4829a",
+      "DisplayName": "CraftInterpreter.Lox",
+      "ColorIndex": 0
+    },
+    "3250bdfd-e437-43d4-b874-114e6a90f585": {
+      "ProjectGuid": "3250bdfd-e437-43d4-b874-114e6a90f585",
+      "DisplayName": "CraftInterpreter.Lox.Tests",
+      "ColorIndex": 1
+    },
+    "cfc7af72-43a0-496b-a5e6-6e17a63e63bd": {
+      "ProjectGuid": "cfc7af72-43a0-496b-a5e6-6e17a63e63bd",
+      "DisplayName": "CraftInterpreter.Lox.Parser",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

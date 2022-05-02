@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CraftInterpreter.Lox.Parser/1.0.0": {
+        "dependencies": {
+          "CraftInterpreter.Lox": "1.0.0"
+        },
+        "runtime": {
+          "CraftInterpreter.Lox.Parser.dll": {}
+        }
+      },
+      "CraftInterpreter.Lox/1.0.0": {
+        "runtime": {
+          "CraftInterpreter.Lox.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CraftInterpreter.Lox.Parser/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CraftInterpreter.Lox/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

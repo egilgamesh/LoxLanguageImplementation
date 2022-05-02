@@ -1,0 +1,15 @@
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\bin\Debug\net6.0\CraftInterpreter.Lox.exe
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\bin\Debug\net6.0\CraftInterpreter.Lox.deps.json
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\bin\Debug\net6.0\CraftInterpreter.Lox.runtimeconfig.json
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\bin\Debug\net6.0\CraftInterpreter.Lox.dll
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\bin\Debug\net6.0\CraftInterpreter.Lox.pdb
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\CraftInterpreter.Lox.csproj.AssemblyReference.cache
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\CraftInterpreter.Lox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\CraftInterpreter.Lox.AssemblyInfoInputs.cache
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\CraftInterpreter.Lox.AssemblyInfo.cs
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\CraftInterpreter.Lox.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\CraftInterpreter.Lox.dll
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\ref\CraftInterpreter.Lox.dll
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\CraftInterpreter.Lox.pdb
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\CraftInterpreter.Lox.genruntimeconfig.cache
+C:\Users\LENOVO\source\repos\CraftInterpreter.Lox\CraftInterpreter.Lox\obj\Debug\net6.0\refint\CraftInterpreter.Lox.dll
