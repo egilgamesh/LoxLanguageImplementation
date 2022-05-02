@@ -70,9 +70,9 @@ public abstract class Statement
 
 	public class IfStatement : Statement
 	{
-		public Expression condition;
-		public Statement elseBranch;
-		public Statement thenBranch;
+		public readonly Expression condition;
+		public readonly Statement elseBranch;
+		public readonly Statement thenBranch;
 
 		public IfStatement(Expression condition, Statement thenBranch, Statement elseBranch)
 		{
@@ -86,7 +86,7 @@ public abstract class Statement
 
 	public class Print : Statement
 	{
-		public Expression expression;
+		public readonly Expression expression;
 
 		public Print(Expression expression) => this.expression = expression;
 

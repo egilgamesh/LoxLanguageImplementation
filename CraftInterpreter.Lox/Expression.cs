@@ -136,19 +136,20 @@ public abstract class Expression
 
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
 	}
+
 	public class Conditional : Expression
 	{
+		public Expression elseBranch;
 		public Expression expression;
 		public Expression thenBranch;
-		public Expression elseBranch;
-             
+
 		public Conditional(Expression expression, Expression thenBranch, Expression elseBranch)
 		{
 			this.expression = expression;
 			this.thenBranch = thenBranch;
 			this.elseBranch = elseBranch;
 		}
-             
+
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
 	}
 }

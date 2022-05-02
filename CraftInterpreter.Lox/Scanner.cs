@@ -46,8 +46,8 @@ public class Scanner
 	// ReSharper disable once MethodTooLong
 	public void ScanToken()
 	{
-		var c = Advance();
-		switch (c)
+		var character = Advance();
+		switch (character)
 		{
 		case '(':
 			AddToken(TokenType.LeftParenthesis);
@@ -119,24 +119,24 @@ public class Scanner
 			StringToken();
 			break;
 		default:
-			if (IsDigit(c))
+			if (IsDigit(character))
 				Number();
-			else if (IsAlpha(c))
+			else if (IsAlpha(character))
 				Identifier();
 			else
 			{
-				throw new UnexpectedCharacter();
 				Program.Error(line, "Unexpected character.");
+				throw new UnexpectedCharacter();
 			}
 			break;
 		}
 	}
 
-	private bool IsDigit(char c) => c >= '0' && c <= '9';
+	private static bool IsDigit(char character) => character is >= '0' and <= '9';
 
-	private bool IsAlpha(char c) => c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c == '_';
+	private static bool IsAlpha(char character) => character is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or '_';
 
-	private bool IsAlphaNumeric(char c) => IsAlpha(c) || IsDigit(c);
+	private static bool IsAlphaNumeric(char character) => IsAlpha(character) || IsDigit(character);
 
 	private void Identifier()
 	{
@@ -144,8 +144,7 @@ public class Scanner
 
 		// See if the identifier is a reserved word.
 		var text = source.Substring(start, current - start);
-		TokenType type;
-		if (!Keywords.TryGetValue(text, out type))
+		if (!Keywords.TryGetValue(text, out var type))
 			type = TokenType.Identifier;
 		AddToken(type);
 	}
@@ -153,7 +152,6 @@ public class Scanner
 	private void Number()
 	{
 		while (IsDigit(Peek())) Advance();
-
 		// Look for a fractional part.
 		if (Peek() == '.' && IsDigit(PeekNext()))
 		{
@@ -164,17 +162,15 @@ public class Scanner
 		AddToken(TokenType.Number, double.Parse(source.Substring(start, current - start)));
 	}
 
-	private char PeekNext()
-	{
-		if (current + 1 >= source.Length) return '\0';
-		return source[current + 1];
-	}
+	private char PeekNext() =>
+		current + 1 >= source.Length
+			? '\0'
+			: source[current + 1];
 
-	private char Peek()
-	{
-		if (IsAtEnd()) return '\0';
-		return source[current];
-	}
+	private char Peek() =>
+		IsAtEnd()
+			? '\0'
+			: source[current];
 
 	private void StringToken()
 	{
