@@ -7,3 +7,12 @@
 *.txt
 *.pdb
 CraftInterpreter.Lox.Tests/bin/Debug/net6.0/CoverletSourceRootsMapping
+*.pdb
+.vs/CraftInterpreter.Lox/v17/.suo
+*.dll
+*.cache
+*.dll
+*.pdb
+*.dll
+*.dll
+*.v2

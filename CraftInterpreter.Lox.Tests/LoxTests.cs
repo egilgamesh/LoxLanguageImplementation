@@ -54,7 +54,7 @@ public class LoxTests
 	public void CheckVarDeclarationIsValid()
 	{
 		ErrorHandler errorHandler = new ParserErrorHandler();
-		var statementList = new parser(new Scanner("var x=10;").Tokens(), errorHandler).Parse();
+		var statementList = new Parser.Parser(new Scanner("var x=10;").Tokens(), errorHandler).Parse();
 		Assert.That(statementList.Count, Is.EqualTo(1));
 		var statement = statementList[0];
 		Assert.That(statement.GetType(), Is.EqualTo(typeof(Statement.Var)));

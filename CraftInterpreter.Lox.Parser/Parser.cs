@@ -1,23 +1,24 @@
 ﻿namespace CraftInterpreter.Lox.Parser;
 
 // ReSharper disable once ClassTooBig
-public class parser
+public class Parser
 {
-	private readonly ErrorHandler errorHandler;
-	private readonly List<Token> tokens;
 	private int current;
 
-	public parser(List<Token> tokens, ErrorHandler errorHandler)
+	public Parser(List<Token> tokens, ErrorHandler errorHandler)
 	{
 		this.tokens = tokens;
 		this.errorHandler = errorHandler;
 	}
 
+	private readonly ErrorHandler errorHandler;
+	private readonly List<Token> tokens;
+
 	public List<Statement> Parse()
 	{
 		var statements = new List<Statement>();
 		while (!IsAtEnd())
-			statements.Add(Declaration());
+			statements.Add(Statement());
 		return statements;
 	}
 
@@ -32,6 +33,7 @@ public class parser
 			return PrintStatement();
 		if (MatchAny(TokenType.While))
 			return WhileStatement();
+		// ReSharper disable once ConvertIfStatementToReturnStatement
 		if (MatchAny(TokenType.LeftBrace))
 			return new Statement.Block(Block());
 		return ExpressionStatement();
@@ -61,9 +63,11 @@ public class parser
 		{
 			body, new Statement.ExpressionStatement(increment)
 		});
+		// ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract
 		condition ??= new Expression.Literal(true);
 		body = new Statement.While(condition, body);
 		// ReSharper disable once ConditionIsAlwaysTrueOrFalse
+		// ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
 		if (initializer != null)
 			body = new Statement.Block(new List<Statement> { initializer, body });
 		return body;
@@ -196,7 +200,7 @@ public class parser
 	{
 		var expression = Term();
 		while (MatchAny(TokenType.Greater, TokenType.GreaterEqual, TokenType.Less,
-						TokenType.LessEqual))
+			TokenType.LessEqual))
 		{
 			var operatorSign = Previous();
 			var right = Term();
@@ -241,13 +245,18 @@ public class parser
 	// ReSharper disable once MethodTooLong
 	private Expression Primary()
 	{
-		if (MatchAny(TokenType.False)) return new Expression.Literal(false);
-		if (MatchAny(TokenType.True)) return new Expression.Literal(true);
-		if (MatchAny(TokenType.Nil)) return new Expression.Literal(null!);
+		if (MatchAny(TokenType.False))
+			return new Expression.Literal(false);
+		if (MatchAny(TokenType.True))
+			return new Expression.Literal(true);
+		if (MatchAny(TokenType.Nil))
+			return new Expression.Literal(null!);
 		if (MatchAny(TokenType.Number, TokenType.String))
 			return new Expression.Literal(Previous().literal);
-		if (MatchAny(TokenType.Identifier)) return new Expression.Variable(Previous());
-		if (!MatchAny(TokenType.LeftParenthesis)) throw Error(Peek(), "Expect expression.");
+		if (MatchAny(TokenType.Identifier))
+			return new Expression.Variable(Previous());
+		if (!MatchAny(TokenType.LeftParenthesis))
+			throw Error(Peek(), "Expect expression.");
 		var expr = Expression();
 		Consume(TokenType.RightParenthesis, "Expect ')' after expression.");
 		return new Expression.Grouping(expr);
@@ -264,7 +273,8 @@ public class parser
 	// ReSharper disable once FlagArgument
 	private Token Consume(TokenType type, string message)
 	{
-		if (Check(type)) return Advance();
+		if (Check(type))
+			return Advance();
 		throw Error(Peek(), message);
 	}
 
@@ -279,7 +289,8 @@ public class parser
 		Advance();
 		while (!IsAtEnd())
 		{
-			if (Previous().type == TokenType.Semicolon) return;
+			if (Previous().type == TokenType.Semicolon)
+				return;
 			switch (Peek().type)
 			{
 			case TokenType.Class:
@@ -298,21 +309,22 @@ public class parser
 
 	private bool Check(TokenType tokenType)
 	{
-		if (IsAtEnd()) return false;
+		if (IsAtEnd())
+			return false;
 		return Peek().type == tokenType;
 	}
 
 	private Token Advance()
 	{
-		if (!IsAtEnd()) current++;
+		if (!IsAtEnd())
+			current++;
 		return Previous();
 	}
 
 	private bool IsAtEnd() => Peek().type == TokenType.Eof;
-
 	private Token Peek() => tokens[current];
-
 	private Token Previous() => tokens[current - 1];
 
+	// ReSharper disable once ClassCanBeSealed.Local
 	private class ParseError : Exception { }
 }

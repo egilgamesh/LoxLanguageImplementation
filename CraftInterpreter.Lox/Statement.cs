@@ -21,9 +21,7 @@ public abstract class Statement
 	public class Block : Statement
 	{
 		public List<Statement> statements;
-
 		public Block(List<Statement> statements) => this.statements = statements;
-
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
 	}
 
@@ -46,9 +44,7 @@ public abstract class Statement
 	public class ExpressionStatement : Statement
 	{
 		public Expression expression;
-
 		public ExpressionStatement(Expression expression) => this.expression = expression;
-
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
 	}
 
@@ -87,12 +83,9 @@ public abstract class Statement
 	public class Print : Statement
 	{
 		public readonly Expression expression;
-
 		public Print(Expression expression) => this.expression = expression;
-
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
-
-		public override string ToString() => "print "+expression;
+		public override string ToString() => "print " + expression;
 	}
 
 	public class Return : Statement

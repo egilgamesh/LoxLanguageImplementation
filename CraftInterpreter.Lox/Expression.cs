@@ -4,6 +4,7 @@ public abstract class Expression
 {
 	public abstract T Accept<T>(Visitor<T> visitor);
 
+	// ReSharper disable once TypeParameterCanBeVariant
 	public interface Visitor<T>
 	{
 		T Visit(Binary expression);
@@ -32,25 +33,20 @@ public abstract class Expression
 		}
 
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
-
 		public override string ToString() => left + " " + @operator.lexeme + " " + right;
 	}
 
 	public class Grouping : Expression
 	{
 		public readonly Expression expression;
-
 		public Grouping(Expression expression) => this.expression = expression;
-
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
 	}
 
 	public class Literal : Expression
 	{
 		public readonly object value;
-
 		public Literal(object value) => this.value = value;
-
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
 
 		public override string ToString() =>
@@ -76,9 +72,7 @@ public abstract class Expression
 	public class Variable : Expression
 	{
 		public Token name;
-
 		public Variable(Token name) => this.name = name;
-
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
 	}
 
@@ -131,9 +125,7 @@ public abstract class Expression
 	public class ThisExpression : Expression
 	{
 		public Token Keyword;
-
 		public ThisExpression(Token keyword) => Keyword = keyword;
-
 		public override T Accept<T>(Visitor<T> visitor) => visitor.Visit(this);
 	}
 

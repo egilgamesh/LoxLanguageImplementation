@@ -3,6 +3,10 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::3250BDFD-E437-43D4-B874-114E6A90F585::net6.0::CraftInterpreter.Lox.Tests.LoxTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::3250BDFD-E437-43D4-B874-114E6A90F585::net6.0::CraftInterpreter.Lox.Tests.ScannerTests.IfStatementCanBeScanned&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3250BDFD-E437-43D4-B874-114E6A90F585::net6.0::CraftInterpreter.Lox.Tests.ParserTests.CheckVarDeclarationIsValid&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3250BDFD-E437-43D4-B874-114E6A90F585::net6.0::CraftInterpreter.Lox.Tests.ParserTests.PrintStatementCanBeScanned&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3250BDFD-E437-43D4-B874-114E6A90F585::net6.0::CraftInterpreter.Lox.Tests.ParserTests.IfStatementCanBeScanned&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3250BDFD-E437-43D4-B874-114E6A90F585::net6.0::CraftInterpreter.Lox.Tests.ParserTests.ForStatementCanBeScanned&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=doxtream/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
