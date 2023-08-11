@@ -1,0 +1,9 @@
+
+*.dll
+*.exe
+*.dll
+*.props
+*.cache
+*.txt
+*.pdb
+CraftInterpreter.Lox.Tests/bin/Debug/net6.0/CoverletSourceRootsMapping

@@ -26,10 +26,9 @@ public class Scanner
 	private int current;
 	private int line = 1;
 	private int start;
-
 	public Scanner(string source) => this.source = source;
 
-	public List<Token> ScanTokens()
+	public List<Token> Tokens()
 	{
 		while (!IsAtEnd())
 		{
@@ -44,6 +43,7 @@ public class Scanner
 	private bool IsAtEnd() => current >= source.Length;
 
 	// ReSharper disable once MethodTooLong
+	// ReSharper disable once CyclomaticComplexity
 	public void ScanToken()
 	{
 		var character = Advance();
@@ -134,13 +134,16 @@ public class Scanner
 
 	private static bool IsDigit(char character) => character is >= '0' and <= '9';
 
-	private static bool IsAlpha(char character) => character is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or '_';
+	private static bool IsAlpha(char character) =>
+		character is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or '_';
 
-	private static bool IsAlphaNumeric(char character) => IsAlpha(character) || IsDigit(character);
+	private static bool IsAlphaNumeric(char character) =>
+		IsAlpha(character) || IsDigit(character);
 
 	private void Identifier()
 	{
-		while (IsAlphaNumeric(Peek())) Advance();
+		while (IsAlphaNumeric(Peek()))
+			Advance();
 
 		// See if the identifier is a reserved word.
 		var text = source.Substring(start, current - start);
@@ -151,13 +154,15 @@ public class Scanner
 
 	private void Number()
 	{
-		while (IsDigit(Peek())) Advance();
+		while (IsDigit(Peek()))
+			Advance();
 		// Look for a fractional part.
 		if (Peek() == '.' && IsDigit(PeekNext()))
 		{
 			// Consume the "."
 			Advance();
-			while (IsDigit(Peek())) Advance();
+			while (IsDigit(Peek()))
+				Advance();
 		}
 		AddToken(TokenType.Number, double.Parse(source.Substring(start, current - start)));
 	}
@@ -176,7 +181,8 @@ public class Scanner
 	{
 		while (Peek() != '"' && !IsAtEnd())
 		{
-			if (Peek() == '\n') line++;
+			if (Peek() == '\n')
+				line++;
 			Advance();
 		}
 
@@ -197,8 +203,10 @@ public class Scanner
 
 	private bool Match(char expected)
 	{
-		if (IsAtEnd()) return false;
-		if (source[current] != expected) return false;
+		if (IsAtEnd())
+			return false;
+		if (source[current] != expected)
+			return false;
 		current++;
 		return true;
 	}

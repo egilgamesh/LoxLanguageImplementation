@@ -38,7 +38,7 @@ public class Program
 	private static void RunScanner(string source)
 	{
 		var scanner = new Scanner(source);
-		var tokens = scanner.ScanTokens();
+		var tokens = scanner.Tokens();
 		foreach (var token in tokens)
 			Console.WriteLine(token);
 	}

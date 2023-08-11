@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XPy2GTQbGFQ1PAL8RMkhp6RDARpCgKtk7D53gmPDc/CJMajKNCa89R1hUxYMzAsbilEq/kUi7UNdv04VLsJxEg==",
+  "dgSpecHash": "YPamm4c7t6OrVwipR0epd3PA+dsz2gGtYnaDKpuA59E1R274c7QeCt0YciaYFrd6fOdbWTB7iuoP2QisJQSkJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\LoxLanguageImplentation\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj",
+  "projectFilePath": "C:\\Users\\malsaedi\\LoxLanguageImplementation\\CraftInterpreter.Lox\\CraftInterpreter.Lox.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

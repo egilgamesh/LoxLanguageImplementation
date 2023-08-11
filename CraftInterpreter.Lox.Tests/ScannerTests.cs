@@ -8,7 +8,7 @@ public class ScannerTests
 	[Test]
 	public void IfStatementCanBeScanned()
 	{
-		var tokens = new Scanner(ExampleIfStatement).ScanTokens();
+		var tokens = new Scanner(ExampleIfStatement).Tokens();
 		Assert.That(tokens.Select(t => t.type).ToArray(), Is.EqualTo(new[]
 		{
 			TokenType.If,
@@ -24,5 +24,5 @@ public class ScannerTests
 		}));
 	}
 
-	public const string ExampleIfStatement = "if(5 == 5)\n\tprint \"he\";";
+	public const string ExampleIfStatement = "if(5 == 5)\n\tprint \"hello Doxtream\";";
 }

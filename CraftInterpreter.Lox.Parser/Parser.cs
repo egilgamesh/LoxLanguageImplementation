@@ -1,5 +1,6 @@
 ﻿namespace CraftInterpreter.Lox.Parser;
 
+// ReSharper disable once ClassTooBig
 public class parser
 {
 	private readonly ErrorHandler errorHandler;

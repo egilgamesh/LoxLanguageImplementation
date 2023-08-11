@@ -6,29 +6,27 @@ namespace CraftInterpreter.Lox.Tests;
 
 public class LoxTests
 {
-
 	[Test]
-	public void TestLoxRunPrompt()
+	public void TestDoxtRunPrompt()
 	{
-		var loxSyntaxSource = "print \"Hello, world!\";";
-		Assert.That(new Scanner(loxSyntaxSource).ScanTokens().Count, Is.EqualTo(4));
-		Assert.That(new Scanner(loxSyntaxSource).ScanTokens().ToArray()[^1].ToString().Trim(),
+		const string DoxtSyntaxSource = "print \"Hello, world!\";";
+		Assert.That(new Scanner(DoxtSyntaxSource).Tokens().Count, Is.EqualTo(4));
+		Assert.That(new Scanner(DoxtSyntaxSource).Tokens().ToArray()[^1].ToString().Trim(),
 			Is.EqualTo(TokenType.Eof.ToString()));
 	}
 
 	[Test]
-	public void TestLoxRunFile()
+	public void TestDoxtRunFile()
 	{
-		var path = "HelloWorld.lox";
+		var path = "HelloWorld.doxtream";
 		var loxSource = File.ReadAllText(path);
-		Assert.That(new Scanner(loxSource).ScanTokens().Count, Is.EqualTo(4));
-
+		Assert.That(new Scanner(loxSource).Tokens().Count, Is.EqualTo(4));
 	}
 
 	[Test]
 	public void GenerateValidTokens()
 	{
-		var tokens = new Scanner("var LoxVersion = 0.1;").ScanTokens();
+		var tokens = new Scanner("var LoxVersion = 0.1;").Tokens();
 		Assert.That(() => tokens.Count, Is.EqualTo(6));
 		Assert.That(() => tokens[0].lexeme, Is.EqualTo("var"));
 		Assert.That(() => tokens[1].lexeme, Is.EqualTo("LoxVersion"));
@@ -38,12 +36,13 @@ public class LoxTests
 	}
 
 	[Test]
-	public void InvalidCharacterShouldThrowException() => Assert.Throws<UnexpectedCharacter>(() =>new Scanner("var #@x=2;").ScanTokens());
+	public void InvalidCharacterShouldThrowException() =>
+		Assert.Throws<UnexpectedCharacter>(() => new Scanner("var #@x=2;").Tokens());
 
 	[Test]
 	public void ValidateTokenTypes()
 	{
-		var tokens = new Scanner("var LoxVersion = 0.1;").ScanTokens();
+		var tokens = new Scanner("var LoxVersion = 0.1;").Tokens();
 		Assert.That(() => tokens[0].type, Is.EqualTo(TokenType.Var));
 		Assert.That(() => tokens[1].type, Is.EqualTo(TokenType.Identifier));
 		Assert.That(() => tokens[2].type, Is.EqualTo(TokenType.Equal));
@@ -55,19 +54,21 @@ public class LoxTests
 	public void CheckVarDeclarationIsValid()
 	{
 		ErrorHandler errorHandler = new ParserErrorHandler();
-		var statementList = new parser(new Scanner("var x=10;").ScanTokens(), errorHandler).Parse();
+		var statementList = new parser(new Scanner("var x=10;").Tokens(), errorHandler).Parse();
 		Assert.That(statementList.Count, Is.EqualTo(1));
 		var statement = statementList[0];
 		Assert.That(statement.GetType(), Is.EqualTo(typeof(Statement.Var)));
 	}
-	//[Test]
-	//public void TestGenerateAst()
-	//{
-	//	var path = "C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\CraftInterpreter.Lox\\LoxGenerate";
-	//	var className = "ExpressionGenerated";
-	//	var generateAbstractSyntaxTree = new GenerateAbstractSyntaxTree(path, className);
-	//	//Assert.That(typeof(Expression), Is.EqualTo(typeof(ExpressionGenerated)));
-	//}
+
+	[Test]
+	public void TestGenerateAst()
+	{
+		var path = Directory.GetCurrentDirectory();
+			//"C:\\Users\\LENOVO\\source\\repos\\CraftInterpreter.Lox\\CraftInterpreter.Lox\\LoxGenerate";
+		var className = "ExpressionGenerated";
+		var generateAbstractSyntaxTree = new GenerateAbstractSyntaxTree(path, className);
+		//Assert.That(typeof(Expression), Is.EqualTo(typeof(ExpressionGenerated)));
+	}
 
 	//[Test]
 	//public void TestPrintAst()
